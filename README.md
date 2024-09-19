@@ -1,1 +1,1 @@
-# penn-football-strength-standards
+# Penn Football Total Score of Athleticism
