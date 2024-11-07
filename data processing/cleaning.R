@@ -152,18 +152,23 @@ max_24_clean <- max_24_season_clean %>%
 
 #### Merge years #### 
 # Merge each year's cleaned max data
-max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean)
+max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean) 
+
+names(max_all_clean) <- c("Height", "Position", "Wingspan", "Weight", "225lb Bench", "Bench", 
+                          "Squat", "Vertical Jump", "Broad Jump", "10-Yard Sprint", "Year", 
+                          "Hang Clean", "L Drill", "Pro Agility", "Power Clean", "Flying 10", 
+                          "60-Yard Shuttle")
 
 #### Write to json ####
-json_structure <- max_all_clean %>%
-  group_by(position) %>%
+max_all_json <- max_all_clean %>%
+  group_by(Position) %>%
   nest() %>%
   mutate(data = map(data, ~ summarise_all(.x, ~ list(na.omit(.))))) %>%
-  mutate(data = map(data, ~ set_names(.x, names(max_all_clean)[-1]))) %>%
+  mutate(data = map(data, ~ set_names(.x, names(max_all_clean)[-2]))) %>%
   deframe()
 
 
-write_json(json_structure_22, path = "stats_position_2024.json", pretty = TRUE)
+write_json(max_all_json, path = "stats_2020_2024.json", pretty = TRUE)
 
 
 #### Group means ####
