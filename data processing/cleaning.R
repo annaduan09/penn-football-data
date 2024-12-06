@@ -9,32 +9,32 @@ conflict_prefer("filter", "dplyr")
 conflict_prefer("select", "dplyr")
 
 #### Functions ####
+
+
+# 6'1.5" notation
 parse_ft_in <- function(ft_in_str) {
-  
   is_ft_in <- grepl("'", ft_in_str)
-  
   total_inches <- ifelse(
     is_ft_in,
-    {
-      parts <- strsplit(ft_in_str, "'")
+    { parts <- strsplit(ft_in_str, "'")
       feet <- as.numeric(sapply(parts, "[", 1))
       inches <- as.numeric(sapply(gsub("\"", "", sapply(parts, "[", 2)), as.numeric))
-      (feet * 12) + inches
-    },
+      (feet * 12) + inches },
     as.numeric(ft_in_str)
   )
-  
   return(total_inches)
 }
 
+
+# 4 digit height notation
 parse_height_notation <- function(height_str) {
-  feet <- as.numeric(substr(height_str, 1, 1))  # First digit for feet
-  inches_full <- as.numeric(substr(height_str, 2, 5)) / 100  # Next four digits as inches
-  
-  total_inches <- (feet * 12) + inches_full
-  
-  return(total_inches)
+  feet <- as.numeric(substr(height_str, 1, 1))  
+  inches_full <- as.numeric(substr(height_str, 2, 3))
+  inches_frac <- as.numeric(substr(height_str, 4, 4))/10
+  height_inches <- (feet * 12) + inches_full + inches_frac
+  return(height_inches)
 }
+
 
 #### Read data ####
 max_20 <- read_csv("data/2020_maxes_wide.csv")
