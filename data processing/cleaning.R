@@ -11,7 +11,7 @@ conflict_prefer("select", "dplyr")
 #### Functions ####
 
 
-# 6'1.5" notation
+# 6'1.5" height notation
 parse_ft_in <- function(ft_in_str) {
   is_ft_in <- grepl("'", ft_in_str)
   total_inches <- ifelse(
@@ -26,7 +26,7 @@ parse_ft_in <- function(ft_in_str) {
 }
 
 
-# 4 digit height notation
+# 6015 height notation
 parse_height_notation <- function(height_str) {
   feet <- as.numeric(substr(height_str, 1, 1))  
   inches_full <- as.numeric(substr(height_str, 2, 3))
@@ -36,31 +36,36 @@ parse_height_notation <- function(height_str) {
 }
 
 
-#### Read data ####
+#### Raw data ####
 max_20 <- read_csv("data/2020_maxes_wide.csv")
 max_22 <- read_csv("data/spring_2022_maxes_long.csv") 
-max_23 <- read_csv("data/2023_maxes_long.csv") %>%
-  as.data.frame()
+max_23 <- read_csv("data/2023_maxes_long.csv") 
 max_24 <- read_csv("data/spring_2024_maxes_long.csv", col_select = c(Athlete, Position, Exercise, Max)) 
 max_24_offseason <- read_csv("data/spring_2024_offseason_bests.csv")
 
 #### Clean data ####
 max_20_clean <- max_20 %>%
-  select(-`...11`, -`...12`, -`...13`, -inches, -`5-10-5`, -`3 Cone`, -name) %>%
-  mutate(across(c(wing, broad_jump), parse_ft_in)) %>%
-  mutate(year = 2020)
+  select(-`...11`, -`...12`, -`...13`, -inches, -`5-10-5`, -`3 Cone`) %>%
+  mutate(across(c(wing, broad_jump), parse_ft_in),
+         year = 2020)
   
-# No 2021 because Covid
+# No 2021 data because Covid
 
 max_22_clean <- max_22 %>%
-  mutate(Athlete = tolower(Athlete),
-         Broad_Jump = parse_ft_in(Broad_Jump),
-         Height = parse_height_notation(Height),
-         across(c(Height, Wing, Weight, Bodyfat, Pre_225, Bench, Squat, Deadlift, Total, `Combine_%_of_BW`,
+  mutate(name = tolower(Athlete),
+         broad_jump = parse_ft_in(Broad_Jump),
+         height = parse_height_notation(Height),
+         height = ifelse(name == "maurcus mcdaniel", 72, height),
+         across(c(Height, Wing, Weight, Pre_225, Bench, Squat, Deadlift, Total,
                          `10yd_Official`, Vertical_Jump, Broad_Jump), as.numeric),
-         Pre_225 = ifelse(Pre_225 == 0, NA, Pre_225)) %>%
-  select(height = Height, wing = Wing, weight = Weight, bench_225 = Pre_225, bench = Bench, squat = Squat,
-         sprint_10y = `10yd_Official`, vertical_jump = Vertical_Jump, broad_jump = Broad_Jump, position = Position) %>%
+         bench_225 = case_when(
+           Pre_225 > 0 ~ Pre_225,
+           Pre_225 == 0 & Bench >= 225 ~ NA_real_,
+           Pre_225 == 0 & Bench < 225 ~ 0,
+           TRUE ~ Pre_225
+         )) %>%
+  select(name, height, wing = Wing, weight = Weight, bench_225, bench = Bench, squat = Squat,
+         sprint_10y = `10yd_Official`, vertical_jump = Vertical_Jump, broad_jump, position = Position) %>%
   mutate(year = 2022)
 
 max_23_clean <- max_23 %>%
