@@ -168,7 +168,7 @@ max_24_offseason_clean <- max_24_offseason %>%
                   vert_mat, bench_225, shuttle_60y, L_drill, pro_agil), as.numeric)) %>%
   select(name = athlete, position, wing, weight, height, flying_10, `10y_sprint`, broad_jump, vert_mat, 
          bench_225, shuttle_60y, L_drill, pro_agil) %>%
-  filter(!is.na(athlete)) %>%
+  filter(!is.na(name)) %>%
   rename(sprint_10y = `10y_sprint`, pro_agility = pro_agil, vertical_jump = vert_mat)
 
 
@@ -197,7 +197,7 @@ max_24_season_clean <- max_24 %>%
   select(-last_name, -first_initial, -Athlete)
 
 max_24_clean <- max_24_season_clean %>%
-  full_join(max_24_offseason_clean, by = c("name_match" = "athlete", "position")) %>%
+  full_join(max_24_offseason_clean, by = c("name_match" = "name", "position")) %>%
   rename(name = name_match) %>%
   mutate(year = 2024)
 
@@ -208,9 +208,9 @@ max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean
 
 
 names(max_all_clean) <- c("Height", "Position", "Wingspan", "Weight", "225lb Bench", "Bench", 
-                          "Squat", "Vertical Jump", "Broad Jump", "10-Yard Sprint", "Year", 
+                          "Squat", "Vertical Jump", "Broad Jump", "10Y Sprint", "Year", 
                           "Hang Clean", "L Drill", "Pro Agility", "Power Clean", "Flying 10", 
-                          "60-Yard Shuttle")
+                          "60Y Shuttle")
 
 #### Write to json ####
 max_all_json <- max_all_clean %>%
