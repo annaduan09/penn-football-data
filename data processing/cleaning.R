@@ -4,6 +4,7 @@ library(conflicted)
 library(pander)
 library(purrr)
 library(jsonlite)
+library(readxl)
 
 conflict_prefer("filter", "dplyr")
 conflict_prefer("select", "dplyr")
@@ -212,6 +213,13 @@ names(max_all_clean) <- c("Height", "Position", "Wingspan", "Weight", "225lb Ben
                           "Hang Clean", "L Drill", "Pro Agility", "Power Clean", "Flying 10", 
                           "60Y Shuttle")
 
+library(pander)
+
+# count NAs in each column
+observations <- max_all_clean %>%
+  summarise_all(~ sum(!is.na(.))) %>%
+  pander("Non-NA Observations")
+
 #### Write to json ####
 max_all_json <- max_all_clean %>%
   group_by(Position) %>%
@@ -223,8 +231,77 @@ max_all_json <- max_all_clean %>%
 
 write_json(max_all_json, path = "stats_2020_2024.json", pretty = TRUE)
 
+#### Roster #### 
+roster_21 <- read_excel("data/roster_21_24.xlsx", sheet = 1) %>%
+  mutate(Class = case_when(
+    tolower(Class) == "fr" ~ 1,
+    tolower(Class) == "so" ~ 2,
+    tolower(Class) == "jr" ~ 3,
+    tolower(Class) == "sr" ~ 4,
+    TRUE ~ NA),
+    across(1:2, tolower))
+names(roster_21) <- c("first", "last", "number", "class_21")
 
-#### Group means ####
+
+roster_22 <- read_excel("data/roster_21_24.xlsx", sheet = 2) %>%
+  mutate(Class = case_when(
+    tolower(Class) == "freshman" ~ 1,
+    tolower(Class) == "sophomore" ~ 2,
+    tolower(Class) == "junior" ~ 3,
+    tolower(Class) == "senior" ~ 4,
+    TRUE ~ NA),
+    across(1:2, tolower))
+names(roster_22) <- c("first", "last", "number", "class_22")
+
+roster_23 <- read_excel("data/roster_21_24.xlsx", sheet = 3) %>%
+  mutate(Class = case_when(
+    tolower(Class) == "fr" ~ 1,
+    tolower(Class) == "so" ~ 2,
+    tolower(Class) == "jr" ~ 3,
+    tolower(Class) == "sr" ~ 4,
+    TRUE ~ NA),
+    across(1:2, tolower))
+names(roster_23) <- c("first", "last", "number", "class_23")
+
+roster_24 <- read_excel("data/roster_21_24.xlsx", sheet = 4) %>%
+  mutate(Class = case_when(
+    tolower(Class) == "fr" ~ 1,
+    tolower(Class) == "so" ~ 2,
+    tolower(Class) == "jr" ~ 3,
+    tolower(Class) == "sr" ~ 4,
+    TRUE ~ NA),
+    across(1:2, tolower))
+names(roster_24) <- c("first", "last", "number", "class_24")
+
+roster <- full_join(roster_21, roster_22) %>%
+  full_join(roster_23) %>%
+  full_join(roster_24) %>%
+  mutate(first = ifelse(first == "alber", "albert", first),
+         first = ifelse(first == "bennet", "bennett", first),
+         first = ifelse(first == "griffen", "griffin", first),
+         first = ifelse(first == "isahiah", "isaiah", first),
+         first = ifelse(first == "laim", "liam", first),
+         first = ifelse(first %in% c("nethino", "netinhon"), "netinho", first),
+         last = ifelse(last == "garber", "gerber", last),
+         last = ifelse(last == "abernathy", "abernethy", last),
+         last = ifelse(last == "roalands", "rolands", last),
+         last = ifelse(last == "jacksradt", "jackstadt", last),
+         last = ifelse(last %in% c("luiano", "luliano"), "iuliano", last),
+         last = ifelse(last == "ruchardson", "richardson", last),
+         last = ifelse(last == "maltu", "mulatu", last),
+         last = ifelse(last == "ostulund", "ostlund", last),
+         last = ifelse(last == "starkey, jr.", "starkey", last),
+         name = paste(first, last, sep = " "),
+         name = ifelse(name == "marcus mcdaniel", "maurcus mcdaniel", name)) %>%
+  group_by(name) %>%
+  summarize(
+    number = coalesce(last(na.omit(number)), NA),
+    class_21 = coalesce(last(na.omit(class_21)), NA),
+    class_22 = coalesce(last(na.omit(class_22)), NA),
+    class_23 = coalesce(last(na.omit(class_23)), NA),
+    class_24 = coalesce(last(na.omit(class_24)), NA)
+  )
+
 # max_22_group <- max_22_clean %>%
 # group_by(Position) %>%
 #   summarize(height = mean(Height, na.rm = TRUE),
