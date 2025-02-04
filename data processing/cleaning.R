@@ -509,7 +509,7 @@ jr_day <- read_csv("data/junior_day_2.25.csv", skip = 2) %>%
          Name = str_remove(Name, "\\."),
          Height = parse_ft_in(Height),
          Wingspan = parse_ft_in(`Wing Span`),
-         Position = "HS",
+         Position = "DB",
          Status = "HS"
          ) %>%
   select(Name, Height, Weight, Wingspan,Position, Status)
