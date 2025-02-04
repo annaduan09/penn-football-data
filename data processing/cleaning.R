@@ -194,7 +194,7 @@ max_20_clean <- max_20 %>%
          test_year = 2020) %>%
   rename(name_last_first = name) %>%
   select(-`...11`, -`...12`, -`...13`, -inches, -`5-10-5`, -`3 Cone`) %>%
-  left_join(roster[,c("name", "name_last_first", "grad_year")], by = "name_last_first")
+  left_join(roster[,c("name", "name_last_first", "grad_year", "number")], by = "name_last_first")
 
 ##### 2022 #####
 max_22_clean <- max_22 %>%
@@ -252,7 +252,7 @@ max_22_clean <- max_22 %>%
     broad_jump
   ) %>%
   mutate(test_year = 2022)  %>%
-  left_join(roster[,c("name", "grad_year")], by = "name")
+  left_join(roster[,c("name", "grad_year", "number")], by = "name")
 
 ##### 2023 #####
 max_23_clean <- max_23 %>%
@@ -312,7 +312,7 @@ max_23_clean <- max_23 %>%
     wing = Wingspan
   ) %>%
   mutate(test_year = 2023) %>%
-  left_join(roster[,c("name", "name_last_first_initial", "grad_year")], by = "name_last_first_initial")
+  left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number")], by = "name_last_first_initial")
 
 ##### 2024 #####
 max_24_offseason_clean <- max_24_offseason %>%
@@ -438,17 +438,37 @@ max_24_clean <- max_24_season_clean %>%
          name_last_first_initial = str_replace(name_last_first_initial, "ruvo", "ruvo iv"),
          name_last_first_initial = str_replace(name_last_first_initial, "bing, j", "bing jr, j"),
          name_last_first_initial = str_replace(name_last_first_initial, "hegarty, c", "polemeni-hegarty, c")) %>%
-  left_join(roster[,c("name", "name_last_first_initial", "grad_year")], by = "name_last_first_initial")
+  left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number")], by = "name_last_first_initial")
 
 ##### Merge years #####
 # Merge each year's cleaned max data
 max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean) %>%
-  select(-name)
-
+  select(name, 
+         position, 
+         number, 
+         height, 
+         wing, 
+         weight, 
+         bench_225, 
+         bench, 
+         squat, 
+         vertical_jump, 
+         broad_jump,
+         sprint_10y, 
+         hang_clean, 
+         L_drill, 
+         pro_agility,
+         power_clean, 
+         flying_10,
+         shuttle_60y, 
+         test_year, 
+         grad_year)
 
 names(max_all_clean) <- c(
-  "Height",
+  "Name",
   "Position",
+  "Number",
+  "Height",
   "Wingspan",
   "Weight",
   "225lb Bench",
@@ -457,21 +477,42 @@ names(max_all_clean) <- c(
   "Vertical Jump",
   "Broad Jump",
   "10Y Sprint",
-  "Year",
   "Hang Clean",
   "L Drill",
   "Pro Agility",
   "Power Clean",
   "Flying 10",
-  "60Y Shuttle"
+  "60Y Shuttle",
+  "Test Year",
+  "Grad Year"
 )
 
-library(pander)
+latest_tests <- max_all_clean %>%
+  filter(!is.na(Name)) %>%
+  group_by(Name) %>%
+  filter(`Test Year` == max(`Test Year`)) %>%
+  ungroup() %>%
+  mutate(Status = case_when(`Test Year` - `Grad Year` >= 0 ~ "SE",
+                           `Test Year` - `Grad Year` == -1 ~ "JR",
+                           `Test Year` - `Grad Year` == -2 ~ "SO",
+                           `Test Year` - `Grad Year` == -3 ~ "FR",
+                           TRUE ~ NA)) 
 
 # count NAs in each column
-observations <- max_all_clean %>%
-  summarise_all( ~ sum(!is.na(.))) %>%
-  pander("Non-NA Observations")
+# observations <- max_all_clean %>%
+#   summarise_all( ~ sum(!is.na(.)))
+
+##### Feb 2025 Junior Day ##### 
+jr_day <- read_csv("data/junior_day_2.25.csv", skip = 2) %>%
+  mutate(Name = paste(`First Name`, `Last Name`, sep = " "),
+         Name = tolower(Name),
+         Name = str_remove(Name, "\\."),
+         Height = parse_ft_in(Height),
+         Wingspan = parse_ft_in(`Wing Span`),
+         Position = "HS",
+         Status = "HS"
+         ) %>%
+  select(Name, Height, Weight, Wingspan,Position, Status)
 
 ##### Write to JSON #####
 max_all_json <- max_all_clean %>%
@@ -486,6 +527,16 @@ max_all_json <- max_all_clean %>%
 
 write_json(max_all_json, path = "stats_2020_2024.json", pretty = TRUE)
 
+
+latest_tests_json <-  latest_tests %>%
+  as.list()
+
+write_json(latest_tests_json, path = "latest_tests_2020_2024.json", pretty = TRUE)
+
+jr_day_json <- jr_day %>%
+  as.list()
+
+write_json(jr_day_json, path = "jr_day_2025.json", pretty = TRUE)
 
 # max_22_group <- max_22_clean %>%
 # group_by(Position) %>%
