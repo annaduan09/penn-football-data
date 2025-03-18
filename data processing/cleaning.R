@@ -538,6 +538,57 @@ jr_day_json <- jr_day %>%
 
 write_json(jr_day_json, path = "jr_day_2025.json", pretty = TRUE)
 
+#### EDA ####
+##### RSI ##### 
+rsi_test <- latest_tests %>%
+  select(Name, Position, Status, Weight, Bench, Squat, `Power Clean`) %>%
+  mutate(RSI = (Bench + Squat) / (2 * Weight))
+
+ggplot(rsi_test %>% filter(!is.na(RSI)) %>% arrange(desc(RSI)) %>% head(10)) +
+  geom_bar(aes(y = reorder(Name, RSI), x = RSI), fill = "navy", stat = "identity") +
+  labs(title = "Top 10 RSI athletes", y = "", x = "Relative Strength Index (RSI)", caption = "RSI calculated using Bench and Squat statistics from athletes' latest spring testing. Excludes athletes with missing tests.") +
+  theme_minimal() 
+
+rsi_test %>%
+  group_by(Position) %>%
+  summarize(RSI = median(RSI, na.rm = TRUE)) %>%
+  ggplot() +
+  geom_bar(aes(y = reorder(Position, RSI), x = RSI), fill = "navy", stat = "identity") +
+  labs(title = "Median RSI by Position Group", y = "", x = "Relative Strength Index (RSI)") +
+  theme_minimal()
+
+rsi_test %>%
+  group_by(Status) %>%
+  summarize(RSI = median(RSI, na.rm = TRUE)) %>%
+  ggplot() +
+  geom_bar(aes(y = reorder(Status, RSI), x = RSI), fill = "navy", stat = "identity") +
+  labs(title = "Median RSI by Year", y = "", x = "Relative Strength Index (RSI)") +
+  theme_minimal()
+
+  ggplot(rsi_test) +
+  geom_point(aes(x = Weight, y = RSI)) +
+  geom_smooth(aes(x = Weight, y = RSI), se = FALSE) +
+  labs(title = "RSI calculation penalizes heavier athletes", y = "Relative Strength Index", subtitle = "n = 129") +
+  theme_minimal()
+  
+  ggplot(rsi_test) +
+    geom_point(aes(x = Weight, y = Squat)) +
+    geom_smooth(aes(x = Weight, y = Squat), se = FALSE) +
+    labs(title = "Squat by Weight", y = "Squat", subtitle = "n = 133") +
+    theme_minimal()
+  
+  ggplot(rsi_test) +
+    geom_point(aes(x = Weight, y = Bench)) +
+    geom_smooth(aes(x = Weight, y = Bench), se = FALSE) +
+    labs(title = "Bench by Weight", y = "Bench", subtitle = "n = 133") +
+    theme_minimal()
+  
+  ggplot(rsi_test) +
+    geom_point(aes(x = Weight, y = `Power Clean`)) +
+    geom_smooth(aes(x = Weight, y = `Power Clean`), se = FALSE) +
+    labs(title = "Power Clean by Weight", y = "Power Clean", subtitle = "n = 133") +
+    theme_minimal()
+
 # max_22_group <- max_22_clean %>%
 # group_by(Position) %>%
 #   summarize(height = mean(Height, na.rm = TRUE),
