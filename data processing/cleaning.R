@@ -184,6 +184,7 @@ max_23 <- read_csv("data/2023_maxes_long.csv")
 max_24 <- read_csv("data/spring_2024_maxes_long.csv",
                    col_select = c(Athlete, Position, Exercise, Max))
 max_24_offseason <- read_csv("data/spring_2024_offseason_bests.csv")
+max_25 <- read_csv("data/spring_2025_maxes_long.csv")
 
 ##### 2020 #####
 max_20_clean <- max_20 %>%
@@ -440,9 +441,20 @@ max_24_clean <- max_24_season_clean %>%
          name_last_first_initial = str_replace(name_last_first_initial, "hegarty, c", "polemeni-hegarty, c")) %>%
   left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number")], by = "name_last_first_initial")
 
+##### 2025 #####
+max_25_clean <- max_25
+names(max_25_clean) <- c("first", "last", "position", "bench", "squat", "vertical_jump", 
+                         "hang_clean", "weight", "sprint_10y", "bench_225")
+max_25_clean <- max_25_clean %>%
+  mutate(position = word(str_replace(position, "/", " "), 1),
+         name = tolower(paste(first, last, sep = " ")),
+         name = str_replace(name, "michael fernicola", "mike fernicola"),
+         test_year = 2025) %>%
+  left_join(roster[,c("name", "grad_year", "number")], by = "name")
+
 ##### Merge years #####
 # Merge each year's cleaned max data
-max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean) %>%
+max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean, max_25_clean) %>%
   select(name, 
          position, 
          number, 
@@ -487,10 +499,16 @@ names(max_all_clean) <- c(
   "Grad Year"
 )
 
+
+
 latest_tests <- max_all_clean %>%
   filter(!is.na(Name)) %>%
+  arrange(desc(`Test Year`)) %>%
   group_by(Name) %>%
-  filter(`Test Year` == max(`Test Year`)) %>%
+  summarize(across(
+    everything(),
+    ~ first(.[!is.na(.)])
+  ), .groups = "drop") %>%
   ungroup() %>%
   mutate(Status = case_when(`Test Year` - `Grad Year` >= 0 ~ "SE",
                            `Test Year` - `Grad Year` == -1 ~ "JR",
@@ -499,8 +517,8 @@ latest_tests <- max_all_clean %>%
                            TRUE ~ NA)) 
 
 # count NAs in each column
-# observations <- max_all_clean %>%
-#   summarise_all( ~ sum(!is.na(.)))
+observations <- latest_tests %>%
+  summarise_all( ~ sum(!is.na(.)))
 
 ##### Feb 2025 Junior Day ##### 
 jr_day <- read_csv("data/junior_day_2.25.csv", skip = 2) %>%
