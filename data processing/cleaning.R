@@ -107,6 +107,21 @@ roster_24 <- read_excel("data/roster_21_24.xlsx", sheet = 4) %>%
   )
 names(roster_24) <- c("first", "last", "number", "class_24")
 
+roster_25 <- read_csv("data/roster_25_26.csv") %>%
+  mutate(
+    Name = str_replace(Name, "\\.", ""),
+    Class = case_when(
+      tolower(Class) == "freshman" ~ 1,
+      tolower(Class) == "sophomore" ~ 2,
+      tolower(Class) == "junior" ~ 3,
+      tolower(Class) == "senior" ~ 4,
+      TRUE ~ NA
+    ),
+    across(1:2, tolower)
+  ) %>%
+  select(-Position)
+names(roster_25) <- c("name", "class_25")
+
 roster <- full_join(roster_21, roster_22) %>%
   full_join(roster_23) %>%
   full_join(roster_24) %>%
@@ -134,6 +149,7 @@ roster <- full_join(roster_21, roster_22) %>%
     # manual corrections
     class_24 = ifelse(name == "nicholas ostlund", 4, class_24)
   ) %>%
+  full_join(roster_25) %>%
   group_by(name) %>%
   summarize(
     first = first[1],
@@ -142,31 +158,32 @@ roster <- full_join(roster_21, roster_22) %>%
     class_21 = coalesce(last(na.omit(class_21)), NA),
     class_22 = coalesce(last(na.omit(class_22)), NA),
     class_23 = coalesce(last(na.omit(class_23)), NA),
-    class_24 = coalesce(last(na.omit(class_24)), NA)
+    class_24 = coalesce(last(na.omit(class_24)), NA),
+    class_25 = coalesce(last(na.omit(class_25)), NA)
   ) %>%
   mutate(
     grad_year = case_when(
-      # option b: was around in Spring 2024
-      class_24 == 1 ~ 2027,
-      class_24 == 2 ~ 2026,
-      class_24 == 3 ~ 2025,
-      class_24 == 4 ~ 2024,
+      # option b: was around in Spring 2025
+      class_25 == 1 ~ 2029,
+      class_25 == 2 ~ 2028,
+      class_25 == 3 ~ 2027,
+      class_25 == 4 ~ 2026,
       
       # option a: was around in Spring 2021
-      class_21 == 1 ~ 2024,
-      class_21 == 2 ~ 2023,
-      class_21 == 3 ~ 2022,
-      class_21 == 4 ~ 2021,
+      class_21 == 1 ~ 2025,
+      class_21 == 2 ~ 2024,
+      class_21 == 3 ~ 2023,
+      class_21 == 4 ~ 2022,
       
       # option c: for guys who quit/transferred, etc
-      class_22 == 1 ~ 2025,
-      class_22 == 2 ~ 2024,
-      class_22 == 3 ~ 2023,
-      class_22 == 4 ~ 2022,
-      class_23 == 1 ~ 2026,
-      class_23 == 2 ~ 2025,
-      class_23 == 3 ~ 2024,
-      class_23 == 4 ~ 2023,
+      class_22 == 1 ~ 2026,
+      class_22 == 2 ~ 2025,
+      class_22 == 3 ~ 2024,
+      class_22 == 4 ~ 2023,
+      class_23 == 1 ~ 2027,
+      class_23 == 2 ~ 2026,
+      class_23 == 3 ~ 2025,
+      class_23 == 4 ~ 2024,
       TRUE ~ NA
     ),
     name_last_first_initial = paste(last, substr(first, 1, 1), sep = ", "),
@@ -514,7 +531,8 @@ latest_tests <- max_all_clean %>%
                            `Test Year` - `Grad Year` == -1 ~ "JR",
                            `Test Year` - `Grad Year` == -2 ~ "SO",
                            `Test Year` - `Grad Year` == -3 ~ "FR",
-                           TRUE ~ NA)) 
+                           TRUE ~ NA)) %>%
+  filter(!is.na(Status))
 
 # count NAs in each column
 observations <- latest_tests %>%
@@ -533,13 +551,16 @@ jr_day <- read_csv("data/junior_day_2.25.csv", skip = 2) %>%
   select(Name, Height, Weight, Wingspan,Position, Status)
 
 ##### Write to JSON #####
+max_all_clean <- max_all_clean %>%
+  select(-Name, -Number, -`Test Year`, -`Grad Year`)
+  
 max_all_json <- max_all_clean %>%
   group_by(Position) %>%
   nest() %>%
   mutate(data = map(data, ~ summarise_all(.x, ~ list(na.omit(
     .
   ))))) %>%
-  mutate(data = map(data, ~ set_names(.x, names(max_all_clean)[-2]))) %>%
+  mutate(data = map(data, ~ set_names(.x, names(max_all_clean)[-1]))) %>%
   deframe()
 
 
