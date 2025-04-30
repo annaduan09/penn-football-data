@@ -135,6 +135,7 @@ roster <- full_join(roster_21, roster_22) %>%
     first = ifelse(first == "salayman", "sulayman", first),
     first = ifelse(first == "jashua", "joshua", first),
     first = ifelse(first == "revor", "trevor", first),
+    
     last = ifelse(last == "garber", "gerber", last),
     last = ifelse(last == "abernathy", "abernethy", last),
     last = ifelse(last == "roalands", "rolands", last),
@@ -144,12 +145,13 @@ roster <- full_join(roster_21, roster_22) %>%
     last = ifelse(last == "maltu", "mulatu", last),
     last = ifelse(last == "ostulund", "ostlund", last),
     last = ifelse(last == "starkey, jr.", "starkey", last),
-    name = paste(first, last, sep = " "),
-    name = ifelse(name == "marcus mcdaniel", "maurcus mcdaniel", name),
-    # manual corrections
-    class_24 = ifelse(name == "nicholas ostlund", 4, class_24)
+    
+    name = paste(first, last, sep = " ")
   ) %>%
   full_join(roster_25) %>%
+  mutate(name = ifelse(name == "marcus mcdaniel", "maurcus mcdaniel", name),
+        name = str_replace(name, "alexandro armour jr", "alex armour jr"),
+        class_24 = ifelse(name == "nicholas ostlund", 4, class_24)) %>%
   group_by(name) %>%
   summarize(
     first = first[1],
@@ -466,6 +468,9 @@ max_25_clean <- max_25_clean %>%
   mutate(position = word(str_replace(position, "/", " "), 1),
          name = tolower(paste(first, last, sep = " ")),
          name = str_replace(name, "michael fernicola", "mike fernicola"),
+         name = str_replace(name, "liam forester", "liam forster"),
+         name = str_replace(name, "alex armour", "alex armour jr"),
+         name = str_replace(name, "alexander jordan", "alex jordan"),
          test_year = 2025) %>%
   left_join(roster[,c("name", "grad_year", "number")], by = "name")
 
@@ -641,7 +646,8 @@ rsi_test %>%
 #             dash_10y = mean(`10yd_Official`, na.rm = TRUE),
 #             vertical_jump = mean(Vertical_Jump, na.rm = TRUE),
 #             broad_jump = mean(Broad_Jump, na.rm = TRUE))
-#
+
+  #
 # max_24_group <- max_24_clean %>%
 #   group_by(position) %>%
 #   summarize(power_clean = mean(power_clean, na.rm = TRUE),
