@@ -1,318 +1,259 @@
-First,Last,Position,Year,Number,Hometown
-Vhito,DeCapria,Captain,R-Fr.,1,
-Ryan,Glover,QB,Sr.,1,"Atlanta, Ga."
-Taheeb,Sonekan,DL,Sr.,2,"Bowie, Md."
-Abe,Willows,WR,Sr.,2,"Austin, Texas"
-Mac,Humble,WR,Sr.,3,"Spicewood, Texas."
-Khalil,Weathers,WR,Sr.,6,"Pittsburgh, Pa."
-Ben,Gerber,WR,Sr.,5,"Wayne, Pa."
-Eric,Markes,WR,Sr.,5,"Valencia, Calif."
-Mohammed,Diakite,DB,Sr.,6,"Northampton, Pa."
-John,Quinnelly,QB,Sr.,6,"Daphne, Ala."
-Winston,Britton,WR,Sr.,7,"Chester, N.Y."
-Garrett,Morris,LB,Sr.,7,"Auburn, Ala."
-Hunter,Hayes,OLB,Sr.,8,"Oakdale, Pa."
-Nick,Robinson,QB,Sr.,8,"Trabuco Canyon, Calif."
-Lewis,Gibson,WR,Sr.,9,"Dallas, Texas"
-Shane,Sweitzer,TE,Sr.,12,"Madison, Conn."
-Kolton,Huber,WR,Sr.,10,"Basking Ridge, N.J."
-Tyler,Herrick,WR,Sr.,11,"Hutto, Texas."
-Sire,Woods,TE,Sr.,12,"Long Beach, Calif."
-Tanner,Long,LB,Sr.,13,"Ambler, Pa."
-Mason,Quandt,QB,Jr.,13,"Simi Valley, Calif."
-Sam,Philippi,DB,Sr.,14,"Trabuco Canyon, Calif."
-Rory,"Starkey, Jr.",WR,Sr.,7,"Atlanta, Ga."
-Gavin,Geib,TE,Jr.,15,"Houston, Texas"
-David,Perkins,K,Jr.,16,"Houston, Texas"
-Malcolm,Strickland,DB,Sr.,16,"Atlanta, Ga."
-Jason,"McCleod, Jr.",DB,Sr.,17,"West Palm Beach, Fla."
-Jaden,Key,DB,Sr.,1,"Neptune, N.J."
-Preston,Norwood,WR,Sr.,18,"Dacula, Ga."
-Nance,Hill,WR,So.,19,"Atlanta, Ga."
-Riley,O'Brien,DB,Sr.,27,"San Clemente, Calif."
-Jacob,Martin,DB,Sr.,20,"Buford, Ga."
-Jonathan,Mulatu,RB,Sr.,21,"Springfield, Va."
-Justin,Sands,DB,Jr.,21,"Cleveland, Ohio"
-Johnny,Williams,RB,So.,22,"Calabasas, Calif."
-Zach,Evans,LB,Sr.,23,"Harrison, N.Y."
-Trey,Flowers,RB,Sr.,8,"Miami, Fla."
-Chris,Rankins,DB,Sr.,2,"Sylmar, Calif."
-Austin,Cooper,DB,Sr.,25,"Centennial, Colo."
-Kendren,Smith,DB,Sr.,4,"Charlotte, N.C."
-Dante',Moore,RB,Sr.,27,"Egg Harbor Township, N.J."
-Tayte,Doddy,DB,Sr.,28,"Houston, Texas"
-James,McCarthy,LB,Sr.,29,"Red Bank, N.J."
-Karekin,Brooks,RB,Sr.,30,"Marietta, Ga."
-Miles,Thompson,DB,Fr.,30,"Fairfax, Va."
-Benji,Mowatt,DL,Sr.,3,"Fort Lee, N.J."
-Conor,O'Brien,DB,Sr.,32,"San Clemente, Calif."
-Isaiah,Malcome,RB,Sr.,33,"Atlanta, Ga."
-Jack,Meehan,LB,Sr.,27,"Tappan, N.Y."
-Patrick,McGettigan,LB/LS,Sr.,34,"Ambler, Pa."
-Luke,Hoggard,LB,Sr.,35,"Huntington Beach, Calif."
-Adam,Conyer,LB,Sr.,10,"Burlington, N.J."
-Jesse,Walsh,LB,Fr.,37,"Branford, Conn."
-Michael,Rolfe,OLB,Sr.,38,"Scarsdale, N.Y."
-Ethan,Zemla,LB,Sr.,54,"Highlands Ranch, Colo."
-Tysen,Comizio,RB,Sr.,40,"Greenwich, Conn."
-Jonathan,Melvin,LB,Sr.,3,"Hampton, Va."
-Brendan,O'Hara,TE,Sr.,42,"New Lenox, Ill."
-Sebastian,Sanchez,OLB,Sr.,43,"Bedminster, N.J."
-Khalil,Lewis,LB,Sr.,44,"McKinney, Texas"
-Jake,Heimlicher,DL,Sr.,15,"Aurora, Colo."
-Jake,Gonzalez,DB,Sr.,26,"Wilmette, Ill."
-Mitzseen,Joseph,DL,Sr.,47,"Palm Beach County, Fla."
-Matthew,McElroy,DL,Sr.,48,"New Milford, N.J."
-Connor,Jangro,OLB,Sr.,49,"Jessup, Md."
-Will,Seiler,DL,Sr.,17,"Atlanta, Ga."
-Sean,Pahls,OLB,Sr.,51,"Kansas City, Kan."
-Choyce,Bostian III,DL,Sr.,52,"Jamul, Calif."
-Jordan,Ford,LB,So.,53,"Phoenixville, Pa."
-Joshua,Chapman,DL,Jr.,55,"Silver Spring, Md."
-Jeff,Gibbs,OL,Sr.,56,"Austin, Texas"
-Travis,Wang,,,,
-Trevor,Radosevich,OL,Sr.,58,"Englishtown, N.J."
-Brian,O'Neill,LB,Sr.,5,"Roseland, N.J."
-JC,Dobis,,,,
-Jack,Iuliano,DL,Sr.,48,"Rye, N.Y."
-Travis,Spreen,OL,Sr.,64,"Sherwood, Ore."
-Ben,Hoitink,OL,Sr.,69,"Hartford, Wis."
-Joe,Basiura,OL,Sr.,66,"Malvern, Pa."
-William,Long,OL,Sr.,67,"Calhoun, Ga."
-Declan,Vargas,OL,Jr.,68,"McLean, Va."
-Ben,Padon,OL,Sr.,70,"Houston, Texas"
-Greg,Begnoche,OL,Sr.,71,"Delray Beach, Fla."
-Ace,Escobedo,OL,Sr.,72,"Aurora, Colo."
-Jack,Purcell,OL,Sr.,73,"Glen Mills, Pa."
-Johnathan,Gessner,OL,Sr.,74,"San Antonio, Texas"
-Dan,Beaver,OL,Sr.,76,"Hummelstown, Pa."
-Prince,Emili,DL,Sr.,78,"New City, N.Y."
-Chase,Bahr,OL,Sr.,75,"Lake Forest, Ill."
-Lawal,Oyedemi,DL,So.,80,"Sugar Land, Texas"
-Owen,Goldsberry,WR,Sr.,11,"Arlington Heights, Ill."
-Jake,Ligos,OL,Sr.,50,"Long Valley, N.J."
-Kailash,Graham-Bell,DL,Sr.,83,"Boulder, Colo."
-Mike,Hoffler,TE,Sr.,83,"Brooklyn, N.Y."
-Niko,Rice,WR,Sr.,84,"Fallston, Md."
-Malone,Howley,WR,Sr.,19,"Portsmouth, R.I."
-Chris,Mottillo,TE,Sr.,86,"Fairview, Pa."
-Nick,Shablom,TE,Sr.,88,"Haymarket, Va."
-Ryan,Cragun,WR,Sr.,2,"San Juan Capistrano, Calif."
-Grant,Ristoff,DL,Sr.,90,"Ladera Ranch, Calif."
-Ryan,Mannelly,DL/LS,Sr.,92,"Atlanta, Ga."
-Drew,Brennan,K,Sr.,93,"Downingtown, Pa."
-Daniel,Karrash,K,Sr.,94,"North Wales, Pa."
-Jake,Haggard,P,Jr.,95,"Laguna Niguel, Calif."
-David,Ryslik,DL,Jr.,96,"Freehold, N.J."
-Mike,Rodriguez,DL,Sr.,97,"Miami Lakes, Fla."
-Micah,Morris,DL,Sr.,98,"Pittsburgh, Pa."
-Ben,Krimm,P,Sr.,99,"Columbus, Ohio"
-Anthony,Lotti,Student Manager,Jr.,,"Freehold, N.J."
-Matt,Norton,Student Manager,Sr.,,"Long Grove, Pa."
-Ray,Priore,,,,
-Bob,Benson,,,,
-Kevin,Morris,,,,
-Ryan,Becker,,,,
-Steven,Downs,,,,
-Jon,Dupont,,,,
-Hank,Hughes,,,,
-Kyle,Metzler,,,,
-Rick,Ulrich,,,,
-Eric,Franklin,,,,
-Jake,Stern,,,,
-Corey,Power,,,,
-Matt,Hutchinson,,,,
-Colin,Brown,,,,
-Brian,Fallon,,,,
-Aaron,Mitchell,,,,
-Rudy,Fuller,,,,
-Jake,Silverman,,,,
-Emily,Dorman,,,,
-Anthony,Erz,,,,
-Miguel,Rivera,,,,
-Jill,Joseph,,,,
-Matt,Eagan,,,,
-Ryan,Zanelli,QB,Sr.,10,"Santa Ana, Calif."
-Hugh,Brady,QB,Jr.,3,"Honolulu, Hawaii"
-Maurcus,McDaniel,WR,Sr.,14,"King of Prussia, Pa."
-Sterling,Stokes,WR,Sr.,17,"Oakland, Calif."
-Walter,Soefker,DB,Sr.,33,"Memphis, Tenn."
-Jack,Plank,DL,Sr.,19,"Kensington, Md."
-Nate,White,LB,So.,20,"Dana Point, Calif."
-Jack,Fairman,LB,Sr.,23,"Bloomfield Hills, Mich."
-Jordan,Niles,RB,Sr.,24,"Clearwater, Fla."
-Shiloh,Means,DB,Sr.,25,"Indianapolis, Ind."
-Logan,Nash,DB,Sr.,5,"Richmond Heights, Ohio"
-Lawson,Nash,DB,Sr.,2,"Richmond Heights, Ohio"
-Chandler,McGruder,Student Assistant,Sr.,,"Indianapolis, Ind."
-Anthony,Bell,LB,Sr.,21,"Easton, Pa."
-Gabe,Wright,DB,Sr.,37,"Stockbridge, Ga."
-Aidan,Nash,LB,Sr.,38,"Philadelphia, Pa."
-Isaiah,Jordan,LB,Sr.,36,"Rockville, Md."
-Sam,Carlson,DL,Sr.,42,"Bozeman, Mont."
-Mozi,Bici,LB,So.,45,"Suffield, Conn."
-Bennett,Smith,TE,Sr.,49,"Charlotte, N.C."
-Henry,Iloanya,DL,So.,52,"Glenn Dale, Md."
-Callum,Abernethy,OL,Sr.,56,"Greenwich, Conn."
-Jack,Kirby,OL,Fr.,62,"Cincinnati, Ohio"
-Griffin,Jackstadt,OL,Sr.,63,"Barnegat, N.J."
-Ned,Freeland,OL,So.,77,"Nashville, Tenn."
-Cameron,Polemeni-Hegarty,OL,Sr.,77,"Goldens Bridge, N.Y."
-Joshua,Casilli,WR,Sr.,87,"McMurray, Pa."
-Cameron,Williams,TE,So.,88,"Villanova, Pa."
-Tanner,Duve,WR,So.,89,"Culver City, Calif."
-Charlie,Mossy,DL,Sr.,91,"Rancho Sante Fe, Calif."
-Graham,Gotlieb,K,Sr.,93,"Boca Raton, Fla."
-Travis,McFarling,DL,Sr.,99,"Flower Mound, Texas"
-Steve,Cunha,,,,
-Shelby,Milne,,,,
-Aidan,Sayin,QB,Sr.,9,"Carlsbad, Calif."
-CJ,Tremble,DB,Sr.,8,"Jacksonville, Fla."
-Grant,Parker,DB,Sr.,9,"Beltsville, Md."
-Julien,Stokes,WR,Sr.,13,"Newbury Park, Calif."
-Jack,Kosick,Student Assistant,Jr.,,"Huntington Beach, Calif."
-Aaron,Jones,RB,Sr.,16,"Bethesda, Md."
-Jacob,Cisneros,RB,Sr.,20,"Anthem, Ariz."
-Julian,Talley,DB,Sr.,7,"Hatfield, Pa."
-Jake,Peterson,LB,Sr.,14,"Spring, Texas"
-Nick,Fryhoff,DL,Sr.,18,"Tustin, Calif."
-Bryce,Myers,TE,Sr.,15,"Bridgewater, N.J."
-Max,Matolcsy,LB,Sr.,15,"Pittsburgh, Pa."
-Mike,Fraraccio,TE,Sr.,44,"Sarasota, Fla."
-Nicholas,Ostlund,DL,Sr.,50,"Dana Point, Calif."
-Liam,Kearney,OL,Sr.,59,"Pittsburgh, Pa."
-Trevor,Mayberry,OL,So.,61,"Odessa, Fla."
-Sulayman,Adeoye,DL,Sr.,88,"Mission Hills, Calif."
-Devin,Spencer,OL,Fr.,71,"Corona, Calif."
-William,Bergin,OL,Sr.,72,"Cheshire, Conn."
-Scott,Dochat,DL,Sr.,76,"Clifton Park, N.Y."
-Joey,Slackman,DL,Sr.,97,"Commack, N.Y."
-Clay,Petry,WR,So.,80,"San Diego, Calif."
-Davis,Ellis,WR,Sr.,3,"Jacksonville, Fla."
-Kobe,Comizio,WR,Jr.,82,"Greenwich, Conn."
-Paul,Jennings,DL,Sr.,10,"Ambler, Pa."
-Justin,Cayenne,TE,Sr.,84,"Ponte Vedra, Fla."
-Bo,Sprague,Student Assistant,Sr.,,"Leawood, Kan."
-Bryce,Hall,DL,Sr.,40,"Southfield, Mich."
-John,Bergeron,LS,Jr.,45,"Covington, La."
-David,Sims,,,,
-Jake,Henzes,,,,
-Colin,Errity,,,,
-Liam,O'Brien,QB,Sr.,2,"Boulder, Colo."
-Sage,Webb,WR,Sr.,4,"Pounding Mill, Va."
-Alex,Haight,WR,Sr.,11,"Delhi, N.Y."
-Kadari,Machen,LB,Sr.,2,"Silver Spring, Md."
-Ryan,O'Connell,LB,Sr.,41,"Fairfield, Conn."
-Bisi,Owens,WR,Sr.,7,"Cooksville, Md."
-Jared,Richardson,WR,Sr.,17,"Blakeslee, Pa."
-Isaac,Shabay,RB,So.,26,"Colleyville, Texas"
-Jake,Hsu,WR,Fr.,28,"Ambler, Pa."
-David,Okechukwu,DB,Jr.,28,"Washington, D.C."
-Francesco,Barone,DB,Sr.,29,"Colts Neck, N.J."
-John,Lista,LB,Sr.,44,"Fair Haven, N.J."
-Jake,Davis,LB,Sr.,43,"Wall, N.J."
-Alec,Wills,DB,Sr.,6,"Carson, Calif."
-Matthew,Leyes,LS,Sr.,45,"Holly, Mich."
-Michael,Gavin,DL,So.,62,"West Chester, Pa."
-Jake,Bingham,OL,Sr.,62,"Virginia Beach, Va."
-Cameron,Wilson,Student Assistant,Sr.,,"Lovettsville, Va."
-Maxwell,Freeman,OL,Sr.,67,"Alpharetta, Ga."
-Netinho,Olivieri,OL,Sr.,74,"Newton, Mass."
-Carter,Janki,DL,Sr.,90,"Redding, Conn."
-Patrick,Hawkins,TE,Jr.,86,"Santa Ana, Calif."
-Chase,Meyer,P/K,Fr.,91,"Costa Mesa, Calif."
-Brady,Ioannidis,DL,Sr.,94,"Kitchener, Ontario"
-Sam,Smith,K,Sr.,91,"Gaithersburg, Md."
-Santiago,Sturla,P/K,Sr.,95,"Blue Bell, Pa."
-Dan,Swanstrom,,,,
-Pete,Palczewski,,,,
-Diana,Hymowitz,,,,
-Josh,Liddick,,,,
-Victor,Szwanki,,,,
-Taryn,Ficken,,,,
-Alexa,Gasser,,,,
-Langston,Livingston,,,,
-Drew,Flack,,,,
-Sean,"Williams, Jr.",RB,Jr.,5,"Baltimore, Md."
-Devin,Page,QB,Fr.,6,"Valley Stream, N.Y."
-Cadin,Olsen,QB,Jr.,8,"Ford City, Pa."
-Jayden,Drayton,WR,Jr.,12,"Brunswick, Ga."
-Darius,Beauvoir,DB,Jr.,21,"Naples, Fla."
-Jamal,"Bing, Jr.",RB,So.,22,"Savannah, Ga."
-Malachi,Hosley,RB,So.,1,"Columbus, Ga."
-Joey,Holliday,LB,Jr.,24,"Atlanta, Ga."
-Cole,Shannon,WR,Jr.,25,"Somerset, N.J."
-Christian,Carter,DB,Jr.,27,"Tampa, Fla."
-Emmanuel,Deng,DB,So.,30,"Dayton, Ohio"
-John,Ruvo IV,WR,Sr.,19,"Scottsdale, Ariz."
-Kayleb,Ervin,DB,Jr.,32,"Las Vegas, Nev."
-Devin,Malloy,DB,Jr.,4,"Fort Washington, Md."
-DJ,Brown,LB,Sr.,36,"Memphis, Tenn."
-Josh,Narcisse,DB,Jr.,16,"Peekskill, N.Y."
-Aaron,Kruse,OL,Jr.,51,"Johns Creek, Ga."
-Cole,Olsztyn,LB,Jr.,33,"Rochester Hills, Mich."
-Zach,Darche,LB/LS,Jr.,53,"Overland Park, Kan."
-Michael,Zack,OL,Jr.,54,"Minesing, Ontario"
-David,Rolands,OL,Jr.,65,"Huntington Woods, Mich."
-Luke,Sacchetti,OL,Jr.,75,"Ball Ground, Ga."
-Albert,Jang,K/P,Sr.,80,"Duluth, Ga."
-Dante,Barone,TE,Jr.,85,"Colts Neck, N.J."
-Mike,Fernicola,OL,Jr.,58,"Wayne, N.J."
-Hunter,Lay,DL,Jr.,92,"Denver, Colo."
-Raashed,Hall,DL,Jr.,93,"Crofton, Md."
-James,Quinnelly,DL,Sr.,95,"Daphne, Ala."
-Davis,Greene,DL,Fr.,96,"Brentwood, Tenn."
-Christian,de Villiers,P,Jr.,97,"Doral, Fla."
-Sean,Reeder,,,,
-Joe,Costadina,,,,
-William,Margraff,,,,
-Jordyn,Hall,,,,
-Brian,Tanis,,,,
-Mike,Martin,,,,
-Karson,Siqueiros-Lasky,QB,So.,6,"Lake Mary, Fla."
-Cole,Spencer,QB,Sr.,10,"Gibsonia, Pa."
-Dylan,Seay,TE,Fr.,18,"Collingswood, N.J."
-Andrew,Bruce,DB,So.,19,"Chardon, Ohio"
-Ronan,Johannson,WR,So.,23,"West St. Paul, Manitoba, Canada"
-Donte,West,RB,So.,26,"Forestville, Md."
-Griffin,Rosenbloom,WR,So.,31,"Carlsbad, Calif."
-Lawson,Douglas,DB,Fr.,34,"Aurora, Colo."
-Trevor,Pajak,LB,So.,35,"Huntington Beach, Calif."
-Ty,Cortes,DB,So.,37,"Poway, Calif."
-Ben,Wable,DB,So.,38,"Cheshire, Conn."
-Brayden,Phinney,LB,So.,46,"Marshfield, Mass."
-Derek,McCrum,LB,So.,47,"Avon Lake, Ohio"
-Aiden,Bergin,LB,So.,48,"Bloomfield Hills, Mich."
-Remo,Marcaccio,OL,So.,50,"New York, N.Y."
-Oliver,Roaman,DL,So.,51,"New York, N.Y."
-Ryan,Mitchell,OL,So.,52,"Midlothian, Va."
-Cosmo,Fusco,DL,So.,55,"Boonton, N.J."
-Alex,Jordan,DL,So.,59,"Castle Pines, Colo."
-Liam,Forster,OL,So.,66,"Patterson, N.Y."
-Trenton,VanBoening,OL,Jr.,70,"Libertyville, Ill."
-Nathan,Sayle,OL,So.,71,"Huntsville, Ala."
-Austin,Zimm,OL,So.,73,"Naples, Fla."
-Marco,Carone,OL/DL,So.,78,"Pittsburgh, Pa."
-Jack,Donnelly,TE,So.,80,"Doylestown, Pa."
-Markus,Brown,TE,So.,81,"Rumson, N.J."
-Connor,Martin,DL,So.,81,"Towaco, N.J."
-Alexandro,"Armour, Jr.",DL,So.,83,"Woodbridge, Va."
-Dylan,Karz,WR,So.,83,"Los Angeles, Calif."
-Justin,Alpert,WR,So.,88,"New Albany, Ohio"
-Connor,Johns,WR,So.,89,"Orefield, Pa."
-Josh,Barnavon,K,So.,93,"Los Angeles, Calif."
-David,McMorris,DL,So.,98,"Glenn Dale, Md."
-Greg,Chimera,,,,
-Marvin,Clecidor,,,,
-Jordan,Johnson,,,,
-David,Josephson,,,,
-Pat,Gannon,,,,
-Ryan,Nelson,,,,
-Joe,Calise,,,,
-Megan,Helf,,,,
-Cat,Hammer,,,,
-Matt,Muniz,,,,
-Tyree,Foreman,,,,
-Elias,Miller,,,,
-Owen,Hartman,,,,
-Kaden,Rodgers,,,,
+First,Last,Position,Year,Number,Hometown,grad_year
+Vhito,DeCapria,Captain,R-Fr.,1,,2024
+Ryan,Glover,QB,Sr.,1,"Atlanta, Ga.",2019
+Taheeb,Sonekan,DL,Sr.,2,"Bowie, Md.",2018
+Abe,Willows,WR,Sr.,2,"Austin, Texas",2018
+Mac,Humble,WR,Sr.,3,"Spicewood, Texas.",2019
+Khalil,Weathers,WR,Sr.,6,"Pittsburgh, Pa.",2021
+Ben,Gerber,WR,Sr.,5,"Wayne, Pa.",2021
+Eric,Markes,WR,Sr.,5,"Valencia, Calif.",2018
+Mohammed,Diakite,DB,Sr.,6,"Northampton, Pa.",2020
+John,Quinnelly,QB,Sr.,6,"Daphne, Ala.",2020
+Winston,Britton,WR,Sr.,7,"Chester, N.Y.",2019
+Garrett,Morris,LB,Sr.,7,"Auburn, Ala.",2021
+Hunter,Hayes,OLB,Sr.,8,"Oakdale, Pa.",2018
+Nick,Robinson,QB,Sr.,8,"Trabuco Canyon, Calif.",2018
+Lewis,Gibson,WR,Sr.,9,"Dallas, Texas",2020
+Shane,Sweitzer,TE,Sr.,12,"Madison, Conn.",2021
+Kolton,Huber,WR,Sr.,10,"Basking Ridge, N.J.",2018
+Tyler,Herrick,WR,Sr.,11,"Hutto, Texas.",2018
+Sire,Woods,TE,Sr.,12,"Long Beach, Calif.",2019
+Tanner,Long,LB,Sr.,13,"Ambler, Pa.",2020
+Mason,Quandt,QB,Jr.,13,"Simi Valley, Calif.",2019
+Sam,Philippi,DB,Sr.,14,"Trabuco Canyon, Calif.",2018
+Rory,"Starkey, Jr.",WR,Sr.,7,"Atlanta, Ga.",2021
+Gavin,Geib,TE,Jr.,15,"Houston, Texas",2018
+David,Perkins,K,Jr.,16,"Houston, Texas",2018
+Malcolm,Strickland,DB,Sr.,16,"Atlanta, Ga.",2020
+Jason,"McCleod, Jr.",DB,Sr.,17,"West Palm Beach, Fla.",2020
+Jaden,Key,DB,Sr.,1,"Neptune, N.J.",2022
+Preston,Norwood,WR,Sr.,18,"Dacula, Ga.",2020
+Nance,Hill,WR,So.,19,"Atlanta, Ga.",2019
+Riley,O'Brien,DB,Sr.,27,"San Clemente, Calif.",2019
+Jacob,Martin,DB,Sr.,20,"Buford, Ga.",2018
+Jonathan,Mulatu,RB,Sr.,21,"Springfield, Va.",2022
+Justin,Sands,DB,Jr.,21,"Cleveland, Ohio",2019
+Johnny,Williams,RB,So.,22,"Calabasas, Calif.",2019
+Zach,Evans,LB,Sr.,23,"Harrison, N.Y.",2018
+Trey,Flowers,RB,Sr.,8,"Miami, Fla.",2021
+Chris,Rankins,DB,Sr.,2,"Sylmar, Calif.",2021
+Austin,Cooper,DB,Sr.,25,"Centennial, Colo.",2018
+Kendren,Smith,DB,Sr.,4,"Charlotte, N.C.",2022
+Dante',Moore,RB,Sr.,27,"Egg Harbor Township, N.J.",2018
+Tayte,Doddy,DB,Sr.,28,"Houston, Texas",2018
+James,McCarthy,LB,Sr.,29,"Red Bank, N.J.",2019
+Karekin,Brooks,RB,Sr.,30,"Marietta, Ga.",2018
+Miles,Thompson,DB,Fr.,30,"Fairfax, Va.",2018
+Benji,Mowatt,DL,Sr.,3,"Fort Lee, N.J.",2019
+Conor,O'Brien,DB,Sr.,32,"San Clemente, Calif.",2018
+Isaiah,Malcome,RB,Sr.,33,"Atlanta, Ga.",2020
+Jack,Meehan,LB,Sr.,27,"Tappan, N.Y.",2021
+Patrick,McGettigan,LB/LS,Sr.,34,"Ambler, Pa.",2019
+Luke,Hoggard,LB,Sr.,35,"Huntington Beach, Calif.",2021
+Adam,Conyer,LB,Sr.,10,"Burlington, N.J.",2021
+Jesse,Walsh,LB,Fr.,37,"Branford, Conn.",2018
+Michael,Rolfe,OLB,Sr.,38,"Scarsdale, N.Y.",2018
+Ethan,Zemla,LB,Sr.,54,"Highlands Ranch, Colo.",2021
+Tysen,Comizio,RB,Sr.,40,"Greenwich, Conn.",2021
+Jonathan,Melvin,LB,Sr.,3,"Hampton, Va.",2022
+Brendan,O'Hara,TE,Sr.,42,"New Lenox, Ill.",2018
+Sebastian,Sanchez,OLB,Sr.,43,"Bedminster, N.J.",2018
+Khalil,Lewis,LB,Sr.,44,"McKinney, Texas",2020
+Jake,Heimlicher,DL,Sr.,15,"Aurora, Colo.",2021
+Jake,Gonzalez,DB,Sr.,26,"Wilmette, Ill.",2021
+Mitzseen,Joseph,DL,Sr.,47,"Palm Beach County, Fla.",2022
+Matthew,McElroy,DL,Sr.,48,"New Milford, N.J.",2020
+Connor,Jangro,OLB,Sr.,49,"Jessup, Md.",2018
+Will,Seiler,DL,Sr.,17,"Atlanta, Ga.",2022
+Sean,Pahls,OLB,Sr.,51,"Kansas City, Kan.",2018
+Choyce,Bostian III,DL,Sr.,52,"Jamul, Calif.",2018
+Jordan,Ford,LB,So.,53,"Phoenixville, Pa.",2019
+Joshua,Chapman,DL,Jr.,55,"Silver Spring, Md.",2020
+Jeff,Gibbs,OL,Sr.,56,"Austin, Texas",2018
+Travis,Wang,OL,Sr.,42,"Taipei, Taiwan",2020
+Trevor,Radosevich,OL,Sr.,58,"Englishtown, N.J.",2021
+Brian,O'Neill,LB,Sr.,5,"Roseland, N.J.",2020
+JC,Dobis,OL,Jr.,61,"Medford, N.J.",2020
+Jack,Iuliano,DL,Sr.,48,"Rye, N.Y.",2022
+Travis,Spreen,OL,Sr.,64,"Sherwood, Ore.",2020
+Ben,Hoitink,OL,Sr.,69,"Hartford, Wis.",2021
+Joe,Basiura,OL,Sr.,66,"Malvern, Pa.",2020
+William,Long,OL,Sr.,67,"Calhoun, Ga.",2019
+Declan,Vargas,OL,Jr.,68,"McLean, Va.",2020
+Ben,Padon,OL,Sr.,70,"Houston, Texas",2019
+Greg,Begnoche,OL,Sr.,71,"Delray Beach, Fla.",2018
+Ace,Escobedo,OL,Sr.,72,"Aurora, Colo.",2018
+Jack,Purcell,OL,Sr.,73,"Glen Mills, Pa.",2022
+Johnathan,Gessner,OL,Sr.,74,"San Antonio, Texas",2019
+Dan,Beaver,OL,Sr.,76,"Hummelstown, Pa.",2019
+Prince,Emili,DL,Sr.,78,"New City, N.Y.",2020
+Chase,Bahr,OL,Sr.,75,"Lake Forest, Ill.",2021
+Lawal,Oyedemi,DL,So.,80,"Sugar Land, Texas",2019
+Owen,Goldsberry,WR,Sr.,11,"Arlington Heights, Ill.",2020
+Jake,Ligos,OL,Sr.,50,"Long Valley, N.J.",2022
+Kailash,Graham-Bell,DL,Sr.,83,"Boulder, Colo.",2018
+Mike,Hoffler,TE,Sr.,83,"Brooklyn, N.Y.",2021
+Niko,Rice,WR,Sr.,84,"Fallston, Md.",2019
+Malone,Howley,WR,Sr.,19,"Portsmouth, R.I.",2022
+Chris,Mottillo,TE,Sr.,86,"Fairview, Pa.",2020
+Nick,Shablom,TE,Sr.,88,"Haymarket, Va.",2018
+Ryan,Cragun,WR,Sr.,2,"San Juan Capistrano, Calif.",2020
+Grant,Ristoff,DL,Sr.,90,"Ladera Ranch, Calif.",2021
+Ryan,Mannelly,DL/LS,Sr.,92,"Atlanta, Ga.",2021
+Drew,Brennan,K,Sr.,93,"Downingtown, Pa.",2018
+Daniel,Karrash,K,Sr.,94,"North Wales, Pa.",2020
+Jake,Haggard,P,Jr.,95,"Laguna Niguel, Calif.",2019
+David,Ryslik,DL,Jr.,96,"Freehold, N.J.",2018
+Mike,Rodriguez,DL,Sr.,97,"Miami Lakes, Fla.",2019
+Micah,Morris,DL,Sr.,98,"Pittsburgh, Pa.",2022
+Ben,Krimm,P,Sr.,99,"Columbus, Ohio",2021
+Ryan,Zanelli,QB,Sr.,10,"Santa Ana, Calif.",2022
+Hugh,Brady,QB,Jr.,3,"Honolulu, Hawaii",2021
+Maurcus,McDaniel,WR,Sr.,14,"King of Prussia, Pa.",2022
+Sterling,Stokes,WR,Sr.,17,"Oakland, Calif.",2022
+Walter,Soefker,DB,Sr.,33,"Memphis, Tenn.",2022
+Jack,Plank,DL,Sr.,19,"Kensington, Md.",2022
+Nate,White,LB,So.,20,"Dana Point, Calif.",2020
+Jack,Fairman,LB,Sr.,23,"Bloomfield Hills, Mich.",2023
+Jordan,Niles,RB,Sr.,24,"Clearwater, Fla.",2022
+Shiloh,Means,DB,Sr.,25,"Indianapolis, Ind.",2023
+Logan,Nash,DB,Sr.,5,"Richmond Heights, Ohio",2022
+Lawson,Nash,DB,Sr.,2,"Richmond Heights, Ohio",2022
+Chandler,McGruder,RB,Jr.,32,"Indianapolis, Ind.",2021
+Anthony,Bell,LB,Sr.,21,"Easton, Pa.",2022
+Gabe,Wright,DB,Sr.,37,"Stockbridge, Ga.",2022
+Aidan,Nash,LB,Sr.,38,"Philadelphia, Pa.",2022
+Isaiah,Jordan,LB,Sr.,36,"Rockville, Md.",2022
+Sam,Carlson,DL,Sr.,42,"Bozeman, Mont.",2023
+Mozi,Bici,LB,So.,45,"Suffield, Conn.",2020
+Bennett,Smith,TE,Sr.,49,"Charlotte, N.C.",2022
+Henry,Iloanya,DL,So.,52,"Glenn Dale, Md.",2020
+Callum,Abernethy,OL,Sr.,56,"Greenwich, Conn.",2022
+Jack,Kirby,OL,Fr.,62,"Cincinnati, Ohio",2019
+Griffin,Jackstadt,OL,Sr.,63,"Barnegat, N.J.",2022
+Ned,Freeland,OL,So.,77,"Nashville, Tenn.",2020
+Cameron,Polemeni-Hegarty,OL,Sr.,77,"Goldens Bridge, N.Y.",2023
+Joshua,Casilli,WR,Sr.,87,"McMurray, Pa.",2023
+Cameron,Williams,TE,So.,88,"Villanova, Pa.",2020
+Tanner,Duve,WR,So.,89,"Culver City, Calif.",2020
+Charlie,Mossy,DL,Sr.,91,"Rancho Sante Fe, Calif.",2022
+Graham,Gotlieb,K,Sr.,93,"Boca Raton, Fla.",2022
+Travis,McFarling,DL,Sr.,99,"Flower Mound, Texas",2023
+Aidan,Sayin,QB,Sr.,9,"Carlsbad, Calif.",2023
+CJ,Tremble,DB,Sr.,8,"Jacksonville, Fla.",2023
+Grant,Parker,DB,Sr.,9,"Beltsville, Md.",2023
+Julien,Stokes,WR,Sr.,13,"Newbury Park, Calif.",2024
+Jack,Kosick,DB,So.,22,"Huntington Beach, Calif.",2021
+Aaron,Jones,RB,Sr.,16,"Bethesda, Md.",2023
+Jacob,Cisneros,RB,Sr.,20,"Anthem, Ariz.",2023
+Julian,Talley,DB,Sr.,7,"Hatfield, Pa.",2023
+Jake,Peterson,LB,Sr.,14,"Spring, Texas",2023
+Nick,Fryhoff,DL,Sr.,18,"Tustin, Calif.",2023
+Bryce,Myers,TE,Sr.,15,"Bridgewater, N.J.",2023
+Max,Matolcsy,LB,Sr.,15,"Pittsburgh, Pa.",2023
+Mike,Fraraccio,TE,Sr.,44,"Sarasota, Fla.",2023
+Nicholas,Ostlund,DL,Sr.,50,"Dana Point, Calif.",2023
+Liam,Kearney,OL,Sr.,59,"Pittsburgh, Pa.",2022
+Trevor,Mayberry,OL,So.,61,"Odessa, Fla.",2021
+Sulayman,Adeoye,DL,Sr.,88,"Mission Hills, Calif.",2024
+Devin,Spencer,OL,Fr.,71,"Corona, Calif.",2020
+William,Bergin,OL,Sr.,72,"Cheshire, Conn.",2024
+Scott,Dochat,DL,Sr.,76,"Clifton Park, N.Y.",2023
+Joey,Slackman,DL,Sr.,97,"Commack, N.Y.",2022
+Clay,Petry,WR,So.,80,"San Diego, Calif.",2021
+Davis,Ellis,WR,Sr.,3,"Jacksonville, Fla.",2024
+Kobe,Comizio,WR,Jr.,82,"Greenwich, Conn.",2022
+Paul,Jennings,DL,Sr.,10,"Ambler, Pa.",2024
+Justin,Cayenne,TE,Sr.,84,"Ponte Vedra, Fla.",2023
+Bo,Sprague,OL,Jr.,55,"Leawood, Kan.",2022
+Bryce,Hall,DL,Sr.,40,"Southfield, Mich.",2023
+John,Bergeron,LS,Jr.,45,"Covington, La.",2021
+Liam,O'Brien,QB,Sr.,2,"Boulder, Colo.",2024
+Sage,Webb,WR,Sr.,4,"Pounding Mill, Va.",2024
+Alex,Haight,WR,Sr.,11,"Delhi, N.Y.",2024
+Kadari,Machen,LB,Sr.,2,"Silver Spring, Md.",2024
+Ryan,O'Connell,LB,Sr.,41,"Fairfield, Conn.",2024
+Bisi,Owens,WR,Sr.,7,"Cooksville, Md.",2024
+Jared,Richardson,WR,Sr.,17,"Blakeslee, Pa.",2024
+Isaac,Shabay,RB,So.,26,"Colleyville, Texas",2022
+Jake,Hsu,WR,Fr.,28,"Ambler, Pa.",2021
+David,Okechukwu,DB,Jr.,28,"Washington, D.C.",2023
+Francesco,Barone,DB,Sr.,29,"Colts Neck, N.J.",2024
+John,Lista,LB,Sr.,44,"Fair Haven, N.J.",2024
+Jake,Davis,LB,Sr.,43,"Wall, N.J.",2024
+Alec,Wills,DB,Sr.,6,"Carson, Calif.",2024
+Matthew,Leyes,LS,Sr.,45,"Holly, Mich.",2024
+Michael,Gavin,DL,So.,62,"West Chester, Pa.",2022
+Jake,Bingham,OL,Sr.,62,"Virginia Beach, Va.",2024
+Cameron,Wilson,OL,So.,66,"Lovettsville, Va.",2022
+Maxwell,Freeman,OL,Sr.,67,"Alpharetta, Ga.",2024
+Netinho,Olivieri,OL,Sr.,74,"Newton, Mass.",2024
+Carter,Janki,DL,Sr.,90,"Redding, Conn.",2024
+Patrick,Hawkins,TE,Jr.,86,"Santa Ana, Calif.",2023
+Chase,Meyer,P/K,Fr.,91,"Costa Mesa, Calif.",2021
+Brady,Ioannidis,DL,Sr.,94,"Kitchener, Ontario",2024
+Sam,Smith,K,Sr.,91,"Gaithersburg, Md.",2024
+Santiago,Sturla,P/K,Sr.,95,"Blue Bell, Pa.",2024
+Sean,"Williams, Jr.",RB,Jr.,5,"Baltimore, Md.",2024
+Devin,Page,QB,Fr.,6,"Valley Stream, N.Y.",2022
+Cadin,Olsen,QB,Jr.,8,"Ford City, Pa.",2024
+Jayden,Drayton,WR,Jr.,12,"Brunswick, Ga.",2024
+Darius,Beauvoir,DB,Jr.,21,"Naples, Fla.",2024
+Jamal,"Bing, Jr.",RB,So.,22,"Savannah, Ga.",2023
+Malachi,Hosley,RB,So.,1,"Columbus, Ga.",2023
+Joey,Holliday,LB,Jr.,24,"Atlanta, Ga.",2024
+Cole,Shannon,WR,Jr.,25,"Somerset, N.J.",2024
+Christian,Carter,DB,Jr.,27,"Tampa, Fla.",2024
+Emmanuel,Deng,DB,So.,30,"Dayton, Ohio",2023
+John,Ruvo IV,WR,Sr.,19,"Scottsdale, Ariz.",2024
+Kayleb,Ervin,DB,Jr.,32,"Las Vegas, Nev.",2024
+Devin,Malloy,DB,Jr.,4,"Fort Washington, Md.",2024
+DJ,Brown,LB,Sr.,36,"Memphis, Tenn.",2024
+Josh,Narcisse,DB,Jr.,16,"Peekskill, N.Y.",2024
+Aaron,Kruse,OL,Jr.,51,"Johns Creek, Ga.",2024
+Cole,Olsztyn,LB,Jr.,33,"Rochester Hills, Mich.",2024
+Zach,Darche,LB/LS,Jr.,53,"Overland Park, Kan.",2024
+Michael,Zack,OL,Jr.,54,"Minesing, Ontario",2024
+David,Rolands,OL,Jr.,65,"Huntington Woods, Mich.",2024
+Luke,Sacchetti,OL,Jr.,75,"Ball Ground, Ga.",2024
+Albert,Jang,K/P,Sr.,80,"Duluth, Ga.",2023
+Dante,Barone,TE,Jr.,85,"Colts Neck, N.J.",2024
+Mike,Fernicola,OL,Jr.,58,"Wayne, N.J.",2024
+Hunter,Lay,DL,Jr.,92,"Denver, Colo.",2024
+Raashed,Hall,DL,Jr.,93,"Crofton, Md.",2024
+James,Quinnelly,DL,Sr.,95,"Daphne, Ala.",2024
+Davis,Greene,DL,Fr.,96,"Brentwood, Tenn.",2022
+Christian,de Villiers,P,Jr.,97,"Doral, Fla.",2024
+Karson,Siqueiros-Lasky,QB,So.,6,"Lake Mary, Fla.",2024
+Cole,Spencer,QB,Sr.,10,"Gibsonia, Pa.",2023
+Dylan,Seay,TE,Fr.,18,"Collingswood, N.J.",2023
+Andrew,Bruce,DB,So.,19,"Chardon, Ohio",2024
+Ronan,Johannson,WR,So.,23,"West St. Paul, Manitoba, Canada",2024
+Donte,West,RB,So.,26,"Forestville, Md.",2024
+Griffin,Rosenbloom,WR,So.,31,"Carlsbad, Calif.",2024
+Lawson,Douglas,DB,Fr.,34,"Aurora, Colo.",2023
+Trevor,Pajak,LB,So.,35,"Huntington Beach, Calif.",2024
+Ty,Cortes,DB,So.,37,"Poway, Calif.",2024
+Ben,Wable,DB,So.,38,"Cheshire, Conn.",2024
+Brayden,Phinney,LB,So.,46,"Marshfield, Mass.",2024
+Derek,McCrum,LB,So.,47,"Avon Lake, Ohio",2024
+Aiden,Bergin,LB,So.,48,"Bloomfield Hills, Mich.",2024
+Remo,Marcaccio,OL,So.,50,"New York, N.Y.",2024
+Oliver,Roaman,DL,So.,51,"New York, N.Y.",2024
+Ryan,Mitchell,OL,So.,52,"Midlothian, Va.",2024
+Cosmo,Fusco,DL,So.,55,"Boonton, N.J.",2024
+Alex,Jordan,DL,So.,59,"Castle Pines, Colo.",2024
+Liam,Forster,OL,So.,66,"Patterson, N.Y.",2024
+Trenton,VanBoening,OL,Jr.,70,"Libertyville, Ill.",2024
+Nathan,Sayle,OL,So.,71,"Huntsville, Ala.",2024
+Austin,Zimm,OL,So.,73,"Naples, Fla.",2024
+Marco,Carone,OL/DL,So.,78,"Pittsburgh, Pa.",2024
+Jack,Donnelly,TE,So.,80,"Doylestown, Pa.",2024
+Markus,Brown,TE,So.,81,"Rumson, N.J.",2024
+Connor,Martin,DL,So.,81,"Towaco, N.J.",2024
+Alexandro,"Armour, Jr.",DL,So.,83,"Woodbridge, Va.",2024
+Dylan,Karz,WR,So.,83,"Los Angeles, Calif.",2024
+Justin,Alpert,WR,So.,88,"New Albany, Ohio",2024
+Connor,Johns,WR,So.,89,"Orefield, Pa.",2024
+Josh,Barnavon,K,So.,93,"Los Angeles, Calif.",2024
+David,McMorris,DL,So.,98,"Glenn Dale, Md.",2024
