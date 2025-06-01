@@ -53,180 +53,60 @@ parse_feet_decimal_notation <- function(length_vec) {
 }
 
 
+
 #### Roster data ####
-roster_21 <- read_excel("data/roster_21_24.xlsx", sheet = 1) %>%
-  mutate(
-    Class = case_when(
-      tolower(Class) == "fr" ~ 1,
-      tolower(Class) == "so" ~ 2,
-      tolower(Class) == "jr" ~ 3,
-      tolower(Class) == "sr" ~ 4,
-      TRUE ~ NA
-    ),
-    across(1:2, tolower)
-  )
-names(roster_21) <- c("first", "last", "number", "class_21")
-
-
-roster_22 <- read_excel("data/roster_21_24.xlsx", sheet = 2) %>%
-  mutate(
-    Class = case_when(
-      tolower(Class) == "freshman" ~ 1,
-      tolower(Class) == "sophomore" ~ 2,
-      tolower(Class) == "junior" ~ 3,
-      tolower(Class) == "senior" ~ 4,
-      TRUE ~ NA
-    ),
-    across(1:2, tolower)
-  )
-names(roster_22) <- c("first", "last", "number", "class_22")
-
-roster_23 <- read_excel("data/roster_21_24.xlsx", sheet = 3) %>%
-  mutate(
-    Class = case_when(
-      tolower(Class) == "fr" ~ 1,
-      tolower(Class) == "so" ~ 2,
-      tolower(Class) == "jr" ~ 3,
-      tolower(Class) == "sr" ~ 4,
-      TRUE ~ NA
-    ),
-    across(1:2, tolower)
-  )
-names(roster_23) <- c("first", "last", "number", "class_23")
-
-roster_24 <- read_excel("data/roster_21_24.xlsx", sheet = 4) %>%
-  mutate(
-    Class = case_when(
-      tolower(Class) == "fr" ~ 1,
-      tolower(Class) == "so" ~ 2,
-      tolower(Class) == "jr" ~ 3,
-      tolower(Class) == "sr" ~ 4,
-      TRUE ~ NA
-    ),
-    across(1:2, tolower)
-  )
-names(roster_24) <- c("first", "last", "number", "class_24")
-
-roster_25 <- read_csv("data/roster_25_26.csv") %>%
-  mutate(
-    Name = str_replace(Name, "\\.", ""),
-    Class = case_when(
-      tolower(Class) == "freshman" ~ 1,
-      tolower(Class) == "sophomore" ~ 2,
-      tolower(Class) == "junior" ~ 3,
-      tolower(Class) == "senior" ~ 4,
-      TRUE ~ NA
-    ),
-    across(1:2, tolower)
-  ) %>%
-  select(-Position)
-names(roster_25) <- c("name", "class_25")
-
-roster <- full_join(roster_21, roster_22) %>%
-  full_join(roster_23) %>%
-  full_join(roster_24) %>%
-  mutate(
-    first = ifelse(first == "alber", "albert", first),
-    first = ifelse(first == "bennet", "bennett", first),
-    first = ifelse(first == "griffen", "griffin", first),
-    first = ifelse(first == "isahiah", "isaiah", first),
-    first = ifelse(first == "laim", "liam", first),
-    first = ifelse(first %in% c("nethino", "netinhon"), "netinho", first),
-    first = ifelse(first == "salayman", "sulayman", first),
-    first = ifelse(first == "jashua", "joshua", first),
-    first = ifelse(first == "revor", "trevor", first),
-    
-    last = ifelse(last == "garber", "gerber", last),
-    last = ifelse(last == "abernathy", "abernethy", last),
-    last = ifelse(last == "roalands", "rolands", last),
-    last = ifelse(last == "jacksradt", "jackstadt", last),
-    last = ifelse(last %in% c("luiano", "luliano"), "iuliano", last),
-    last = ifelse(last == "ruchardson", "richardson", last),
-    last = ifelse(last == "maltu", "mulatu", last),
-    last = ifelse(last == "ostulund", "ostlund", last),
-    last = ifelse(last == "starkey, jr.", "starkey", last),
-    
-    name = paste(first, last, sep = " ")
-  ) %>%
-  full_join(roster_25) %>%
-  mutate(name = ifelse(name == "marcus mcdaniel", "maurcus mcdaniel", name),
-        name = str_replace(name, "alexandro armour jr", "alex armour jr"),
-        class_24 = ifelse(name == "nicholas ostlund", 4, class_24)) %>%
-  group_by(name) %>%
-  summarize(
-    first = first[1],
-    last = last[1],
-    number = coalesce(last(na.omit(number)), NA),
-    class_21 = coalesce(last(na.omit(class_21)), NA),
-    class_22 = coalesce(last(na.omit(class_22)), NA),
-    class_23 = coalesce(last(na.omit(class_23)), NA),
-    class_24 = coalesce(last(na.omit(class_24)), NA),
-    class_25 = coalesce(last(na.omit(class_25)), NA)
-  ) %>%
-  mutate(
-    grad_year = case_when(
-      # option b: was around in Spring 2025
-      class_25 == 1 ~ 2029,
-      class_25 == 2 ~ 2028,
-      class_25 == 3 ~ 2027,
-      class_25 == 4 ~ 2026,
-      
-      # option a: was around in Spring 2021
-      class_21 == 1 ~ 2025,
-      class_21 == 2 ~ 2024,
-      class_21 == 3 ~ 2023,
-      class_21 == 4 ~ 2022,
-      
-      # option c: for guys who quit/transferred, etc
-      class_22 == 1 ~ 2026,
-      class_22 == 2 ~ 2025,
-      class_22 == 3 ~ 2024,
-      class_22 == 4 ~ 2023,
-      class_23 == 1 ~ 2027,
-      class_23 == 2 ~ 2026,
-      class_23 == 3 ~ 2025,
-      class_23 == 4 ~ 2024,
-      TRUE ~ NA
-    ),
-    name_last_first_initial = paste(last, substr(first, 1, 1), sep = ", "),
-    name_last_first = paste(last, first, sep = ", "),
-    # same last name fix for 2023 stat join
-    name_last_first_initial = case_when(name == "lawson nash" ~ "nash, la",
-                                        name == "logan nash" ~ "nash, lo",
-                                        TRUE ~ name_last_first_initial)
-  )
+roster <- read_csv("data/roster_19_25.csv") %>%
+  mutate(position = str_replace(position, "OLB", "LB"),
+         position = str_replace(position, "K", "SP"),
+         position = str_replace(position, "LB/LS", "LB"),
+         position = str_replace(position, "DL/LS", "DL"),
+         position = str_replace(position, "P", "SP"),
+         position = str_replace(position, "LS", "SP"),
+         position = str_replace(position, "P/K", "SP"),
+         position = str_replace(position, "K/P", "SP"),
+         position = str_replace(position, "OL/DL", "OL"),
+         name_last_first_initial = ifelse(name == "logan nash", "nash, lo", name_last_first_initial),
+         name_last_first_initial = ifelse(name == "lawson nash", "nash, la", name_last_first_initial))
+         
 
 #### Testing data ####
-max_20 <- read_csv("data/2020_maxes_wide.csv")
-max_22 <- read_csv("data/spring_2022_maxes_long.csv")
-max_23 <- read_csv("data/2023_maxes_long.csv")
-max_24 <- read_csv("data/spring_2024_maxes_long.csv",
+max_20 <- read_csv("data/raw_testing/2020_maxes_wide.csv")
+max_22 <- read_csv("data/raw_testing/spring_2022_maxes_long.csv")
+max_23 <- read_csv("data/raw_testing/2023_maxes_long.csv")
+max_24 <- read_csv("data/raw_testing/spring_2024_maxes_long.csv",
                    col_select = c(Athlete, Position, Exercise, Max))
-max_24_offseason <- read_csv("data/spring_2024_offseason_bests.csv")
-max_25 <- read_csv("data/spring_2025_maxes_long.csv")
+max_24_offseason <- read_csv("data/raw_testing/spring_2024_offseason_bests.csv")
+max_25 <- read_csv("data/raw_testing/spring_2025_maxes_long.csv")
 
 ##### 2020 #####
 max_20_clean <- max_20 %>%
   mutate(name = tolower(name),
+         name = ifelse(name == "thomspson, miles", "thompson, miles", name),
+         name = ifelse(name == "joesph, mitzseen", "joseph, mitzseen", name),
+         name = ifelse(name == "mottillo, christopher", "mottillo, chris", name),
+         name = ifelse(name == "zelma, ethan", "zemla, ethan", name),
+         name = ifelse(name == "starkey, rory", "starkey, jr., rory", name),
+         name = ifelse(name == "mccleod, jason", "mccleod, jr., jason", name),
          across(where(is.character), ~ gsub("[‘’]", "'", .)),
          across(-c(name, position), ~ ifelse(grepl("[A-Za-z]", .), NA, .)),
          across(c(wing, broad_jump), parse_ft_in),
          test_year = 2020) %>%
   rename(name_last_first = name) %>%
   select(-`...11`, -`...12`, -`...13`, -inches, -`5-10-5`, -`3 Cone`) %>%
-  left_join(roster[,c("name", "name_last_first", "grad_year", "number")], by = "name_last_first")
+  left_join(roster[,c("name", "name_last_first", "grad_year", "number", "status")], by = "name_last_first")
 
 ##### 2022 #####
 max_22_clean <- max_22 %>%
   mutate(across(where(is.character), ~ gsub("[‘’]", "'", .)), across(-c(Athlete, Position), ~ ifelse(grepl("[A-Za-z]", .), NA, .))) %>%
   mutate(
     name = tolower(Athlete),
-    name = ifelse(name == "will bergin", "william bergin", name), # Matching roster names from Brian Fallon. Not sure why some go by government
+    name = ifelse(name == "will bergin", "william bergin", name),
     name = ifelse(name == "nicholas fryhoff", "nick fryhoff", name),
     name = ifelse(name == "nick ostlund", "nicholas ostlund", name),
     name = ifelse(name == "cam hegarty", "cameron polemeni-hegarty", name),
     name = ifelse(name == "comizio kobe", "kobe comizio", name),
     name = ifelse(name == "josh casilli", "joshua casilli", name),
+    name = ifelse(name == "rory starkey", "rory starkey, jr.", name),
     across(
       c(
         Height,
@@ -272,7 +152,7 @@ max_22_clean <- max_22 %>%
     broad_jump
   ) %>%
   mutate(test_year = 2022)  %>%
-  left_join(roster[,c("name", "grad_year", "number")], by = "name")
+  left_join(roster[,c("name", "grad_year", "number", "status")], by = "name")
 
 ##### 2023 #####
 max_23_clean <- max_23 %>%
@@ -281,8 +161,8 @@ max_23_clean <- max_23 %>%
     Name = str_remove_all(Name, "\\."),
     Name = str_remove_all(Name, "'"),
     # manual corrections for roster join
-    Name = ifelse(Name == "bing, j", "bing jr, j", Name),
-    Name = ifelse(Name == "williams, s", "williams jr, s", Name),
+    Name = ifelse(Name == "bing, j", "bing, jr., j", Name),
+    Name = ifelse(Name == "williams, s", "williams, jr., s", Name),
     Name = ifelse(Name == "tremble, cj", "tremble, c", Name),
     Name = ifelse(Name == "ruvo, j", "ruvo iv, j", Name),
     Name = ifelse(Name == "oconnell, r", "o'connell, r", Name),
@@ -332,7 +212,7 @@ max_23_clean <- max_23 %>%
     wing = Wingspan
   ) %>%
   mutate(test_year = 2023) %>%
-  left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number")], by = "name_last_first_initial")
+  left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number", "status")], by = "name_last_first_initial")
 
 ##### 2024 #####
 max_24_offseason_clean <- max_24_offseason %>%
@@ -348,7 +228,6 @@ max_24_offseason_clean <- max_24_offseason %>%
     athlete = str_replace_all(athlete, "casilli, c", "casilli, j"),
     athlete = str_replace_all(athlete, "drayton, j", "drayton, j"),
     athlete = str_replace_all(athlete, "holiday", "holliday"),
-    athlete = str_replace_all(athlete, "obrien, l", "obrien, l"),
     athlete = str_replace_all(athlete, "ostland", "ostlund"),
     athlete = str_replace_all(athlete, "zach, m", "zack, m"),
     athlete = str_remove(athlete, "\\."),
@@ -454,11 +333,11 @@ max_24_clean <- max_24_season_clean %>%
          # manual fix for roster join
          name_last_first_initial = str_replace(name_last_first_initial, "obrien", "o'brien"),
          name_last_first_initial = str_replace(name_last_first_initial, "oconnell", "o'connell"),
-         name_last_first_initial = str_replace(name_last_first_initial, "williams, s", "williams jr, s"),
+         name_last_first_initial = str_replace(name_last_first_initial, "williams, s", "williams, jr., s"),
          name_last_first_initial = str_replace(name_last_first_initial, "ruvo", "ruvo iv"),
-         name_last_first_initial = str_replace(name_last_first_initial, "bing, j", "bing jr, j"),
+         name_last_first_initial = str_replace(name_last_first_initial, "bing, j", "bing, jr., j"),
          name_last_first_initial = str_replace(name_last_first_initial, "hegarty, c", "polemeni-hegarty, c")) %>%
-  left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number")], by = "name_last_first_initial")
+  left_join(roster[,c("name", "name_last_first_initial", "grad_year", "number", "status")], by = "name_last_first_initial")
 
 ##### 2025 #####
 max_25_clean <- max_25
@@ -469,10 +348,12 @@ max_25_clean <- max_25_clean %>%
          name = tolower(paste(first, last, sep = " ")),
          name = str_replace(name, "michael fernicola", "mike fernicola"),
          name = str_replace(name, "liam forester", "liam forster"),
-         name = str_replace(name, "alex armour", "alex armour jr"),
+         name = str_replace(name, "alex armour", "alexandro armour, jr."),
          name = str_replace(name, "alexander jordan", "alex jordan"),
+         name = str_replace(name, "jamal bing jr", "jamal bing, jr."),
+         name = str_replace(name, "sean williams jr", "sean williams, jr."),
          test_year = 2025) %>%
-  left_join(roster[,c("name", "grad_year", "number")], by = "name")
+  left_join(roster[,c("name", "grad_year", "number", "status")], by = "name")
 
 ##### Merge years #####
 # Merge each year's cleaned max data
@@ -480,6 +361,7 @@ max_all_clean = bind_rows(max_20_clean, max_22_clean, max_23_clean, max_24_clean
   select(name, 
          position, 
          number, 
+         status,
          height, 
          wing, 
          weight, 
@@ -502,6 +384,7 @@ names(max_all_clean) <- c(
   "Name",
   "Position",
   "Number",
+  "Status",
   "Height",
   "Wingspan",
   "Weight",
@@ -532,11 +415,6 @@ latest_tests <- max_all_clean %>%
     ~ first(.[!is.na(.)])
   ), .groups = "drop") %>%
   ungroup() %>%
-  mutate(Status = case_when(`Test Year` - `Grad Year` >= 0 ~ "SE",
-                           `Test Year` - `Grad Year` == -1 ~ "JR",
-                           `Test Year` - `Grad Year` == -2 ~ "SO",
-                           `Test Year` - `Grad Year` == -3 ~ "FR",
-                           TRUE ~ NA)) %>%
   filter(!is.na(Status))
 
 # count NAs in each column
